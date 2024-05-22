@@ -1,0 +1,19 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<div class="blog_detail">
+    <div class="blog_image" style="background-image: url({{blog.image.url}});"></div>
+    <div class="blog_detail_head">
+        <h3 class="blog_title">{{ blog.title }}</h3>
+        <p class="date_created">{{ blog.date_created.date }}</p>
+    </div>
+    <div class="blog_detail_body">
+        {% if blog.image %}
+        {% endif %}
+        <p>{{ blog.category }}</p>
+        <div class="article_body">
+            {{ blog.body | safe }}
+        </div>
+    </div>
+</div>
+{% endblock %}

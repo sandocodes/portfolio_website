@@ -1,0 +1,37 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <div class="blog_section">
+        <!-- blog hero section -->
+        <div class="blog_hero">
+            <h3 class="blog_title">Blog</h3>
+            <p class="blog_page_description">Read weekly articles on the latest programming topics, including languages like Python, JavaScript, Bash Scripting, Networking, Databases and many more.</p>
+        </div>
+        <div class="articles_">
+            <!-- Latest Articles -->
+            <h3 class="latest_heading">Articles</h3>
+            <div class="latest">
+                {% for post in posts %}
+                <a href="{% url 'blog_detail' slug=post.slug %}" class="_blog">
+                    {% if post.image %}
+                    <img src="{{post.image.url}}" alt="{{post.title}}">
+                    {% endif %}
+                    <div class="blog_description">
+                        <h4 class="blog_title">{{post.title}}</h4>
+                        <h6 class="date_published">{{post.date_created.date}}</h6>
+                        <p>{{post.snippet | safe}}</p>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+            <!-- Popular Articles -->
+            <div class="popular">
+
+            </div>
+            <!-- All Articles -->
+            <div class="all_articles">
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

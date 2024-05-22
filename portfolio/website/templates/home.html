@@ -1,0 +1,58 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <div class="home_page">
+        <div class="home_hero">
+            <h3>Welcome, I'm Justin Sando Kollie</h3>
+            <p>I am a Python Developer and Data Engineer. Adipisicing elit. Deserunt alias quo adipisci aspernatur impedit, enim modi dolorem dolor. Facilis a cumque veniam nulla, magni aspernatur.</p>
+        </div>
+        <!-- About Me Short Info -->
+        <div class="about_short">
+            <img src="https://avatars.githubusercontent.com/u/156034662?v=4" alt="my_image">
+            <div class="about_me">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus dolorum distinctio accusantium sed iusto accusamus quis dolor exercitationem maxime eligendi Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi repudiandae libero itaque, magnam blanditiis vel.</p>
+                <div class="link_btns">
+                    <a href="../static/professional/Resume.pdf" target="_blank">Résumé</a>
+                    <a href="{% url 'website_about_page' %}">About Me</a>
+                </div>
+            </div>
+        </div>
+        <!-- Featured Projects -->
+        <div class="featured_projects">
+            <h3>Featured Projects</h3>
+            <div>
+                {% for project in feat_projects %}
+                <a href="{% url 'project_detail_page' slug=project.slug %}" class="_project">
+                    <img src="{{ project.image.url }}" alt="{{ project.name }}">
+                    <div class="project_description">
+                        <h4 class="project_title">{{project.name}}</h4>
+                        <h6 class="date_published">{{project.date_created.date}}</h6>
+                        <p class="snippet">{{project.snippet | safe}}</p>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+            <a href="{% url 'website_projects_page' %}" class="all_projects_link">All Projects</a>
+        </div>
+        <!-- Latest Articles -->
+        <div class="latest_articles">
+            <h3>Recent Articles</h3>
+            <div class="latest">
+                {% for post in posts %}
+                <a href="{% url 'blog_detail' slug=post.slug %}" class="_blog">
+                    {% if post.image %}
+                    <img src="{{post.image.url}}" alt="{{post.title}}">
+                    {% endif %}
+                    <div class="blog_description">
+                        <h4 class="blog_title">{{post.title}}</h4>
+                        <h6 class="date_published">{{post.date_created.date}}</h6>
+                        <p>{{post.snippet | safe}}</p>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+            <a href="{% url 'website_blog_section_page' %}" class="all_articles_link">All Articles</a>
+        </div>
+        <!-- Edit Above Code -->
+    </div>
+{% endblock %}
