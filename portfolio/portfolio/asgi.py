@@ -11,6 +11,8 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "portfolio.settings")
+settings_module = 'portfolio.deployment' if 'WEBSITE_NAME' in os.environ else 'portfolio.settings'
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
 
 application = get_asgi_application()
