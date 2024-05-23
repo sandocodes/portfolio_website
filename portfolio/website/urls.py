@@ -1,6 +1,5 @@
 from django.urls import path
 from . import views
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = [
@@ -12,6 +11,3 @@ urlpatterns = [
     path('blog/<slug>', views.blog_detail_page, name='blog_detail'),
     path('contact-me/', views.contact_page, name='website_contact_page'),
 ]
-
-
-urlpatterns += staticfiles_urlpatterns()
