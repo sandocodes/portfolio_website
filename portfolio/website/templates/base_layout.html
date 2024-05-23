@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="{% static 'base_styles.css' %}">
     <link rel="stylesheet" href="{% static 'navbar_styles.css' %}">
     <link rel="stylesheet" href="{% static 'home_styles.css' %}">
-    <link rel="stylesheet" href="{% static 'about_styles.css' %}">
-    <link rel="stylesheet" href="{% static 'projects_styles.css' %}">
-    <link rel="stylesheet" href="{% static 'project_detail.css' %}">
-    <link rel="stylesheet" href="{% static 'blog_styles.css' %}">
-    <link rel="stylesheet" href="{% static 'blog_detail.css' %}">
-    <link rel="stylesheet" href="{% static 'contact_styles.css' %}">
-    <link rel="stylesheet" href="{% static 'footer_styles.css' %}">
+    <link rel="stylesheet" href="{% static '/about_styles.css' %}">
+    <link rel="stylesheet" href="{% static '/projects_styles.css' %}">
+    <link rel="stylesheet" href="{% static '/project_detail.css' %}">
+    <link rel="stylesheet" href="{% static '/blog_styles.css' %}">
+    <link rel="stylesheet" href="{% static '/blog_detail.css' %}">
+    <link rel="stylesheet" href="{% static '/contact_styles.css' %}">
+    <link rel="stylesheet" href="{% static '/footer_styles.css' %}">
     <!-- Fontawesome Icons CDN -->
     <script src="https://kit.fontawesome.com/3bb1bb30c3.js" crossorigin="anonymous"></script>
     <title>{{title}}</title>
@@ -27,7 +27,7 @@
         {% block content %}
         {% endblock %}
     </div>
-    <script src="{% static 'navbar.js' %}"></script>
+    <script src="{% static '/navbar.js' %}"></script>
     {% include 'footer.html' %}
 </body>
 </html>
